@@ -86,6 +86,10 @@ Configuration is:
 
 ## Configure the trees as follows
 
+
+Enzoic Async Auth Tree :
+Enzoic Async Auth Tree will check password is compromised or not using Enzoic Password ping API and proceeds with login without waiting for response from Enzoic. If password is compromised then user attribute is updated as True and if not, User attribute is updated as False. The customer can check this attribute for future AuthN or AuthZ and configure the flow according to the value of this user attribute.
+
  * Navigate to **Realm** > **Authentication** > **Trees** > **Create Tree**
  
  ![tree](https://user-images.githubusercontent.com/20396535/48189113-66c21e80-e365-11e8-8045-326786a41aca.PNG)
@@ -93,12 +97,20 @@ Configuration is:
  
  ## Configuring Enzoic-Sync Auth Tree
 
+The Enzoic Sync Auth Tree will check if the password is compromised using the Enzoic API. This tree then waits for
+a response from Enzoic before proceeding. If the password is compromised, the user will not able to login.
+
+
 Configuration of Enzoic-Sync Auth Tree depicted below:
 
 ![Enzoic_updatedTree](https://user-images.githubusercontent.com/20396535/57918407-5a8ac100-78b4-11e9-8e33-1f7bb0dd4e81.PNG)
 
 
  ## Configuring Enzoic-Async Auth Tree
+ 
+The Enzoic Async Auth Tree will check password is compromised using Enzoic API and proceeds with
+login without waiting for response. If the password is compromised then the user attribute is updated to True. If not,
+ the user attribute is updated to False. The customer can check this attribute in future AuthN or AuthZ flows.
 
 Configuration of Enzoic-Async Auth Tree depicted below:
 
